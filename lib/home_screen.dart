@@ -130,40 +130,56 @@ class HomeScreen extends StatelessWidget {
       );
     }
 
-    Widget ListCategory() {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-            child: Text(
-              'Categories',
-              style: darkText.copyWith(fontSize: 16),
+    Widget itemRelese(
+        {required String imageUrl,
+        required String price,
+        required String desc}) {
+      return Container(
+        padding: EdgeInsets.all(8),
+        width: 175,
+        height: 268,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              height: 166,
+              decoration: BoxDecoration(
+                color: creamC,
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: Center(
+                child: Image.asset(
+                  imageUrl,
+                  fit: BoxFit.cover,
+                  width: 114,
+                ),
+              ),
             ),
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                const SizedBox(
-                  width: 16,
-                ),
-                categoryItem(
-                  'assets/people3.png',
-                  'Full Face Helmet',
-                ),
-                categoryItem(
-                  'assets/people2.png',
-                  'Dual Sport/Dirt',
-                ),
-                categoryItem(
-                  'assets/people1.png',
-                  'Open Face',
-                ),
-              ],
+            const SizedBox(height: 8),
+            Text(
+              price,
+              style: darkText.copyWith(
+                color: blackC,
+                fontSize: 18,
+              ),
             ),
-          )
-        ],
+            const SizedBox(
+              height: 2,
+            ),
+            Text(
+              desc,
+              style: darkGreyText.copyWith(
+                fontSize: 12,
+                fontWeight: medium,
+              ),
+            )
+          ],
+        ),
       );
     }
 
@@ -173,7 +189,7 @@ class HomeScreen extends StatelessWidget {
         header(),
         listCategory(),
         Padding(
-          padding: const EdgeInsets.fromLTRB(16, 30, 16, 0),
+          padding: const EdgeInsets.fromLTRB(16, 30, 16, 10),
           child: Column(
             children: [
               Row(
@@ -206,15 +222,15 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    width: 175,
-                    height: 268,
-                    color: Colors.black,
+                  itemRelese(
+                    imageUrl: 'assets/helm_1.png',
+                    price: 'US \$499',
+                    desc: 'THH TX-27 DUAL SPORT HELMET',
                   ),
-                  Container(
-                    width: 175,
-                    height: 268,
-                    color: Colors.black,
+                  itemRelese(
+                    imageUrl: 'assets/helm_2.png',
+                    price: 'US \$789',
+                    desc: 'NHK GP-R TECH',
                   ),
                 ],
               ),
@@ -223,7 +239,18 @@ class HomeScreen extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [],
+                children: [
+                  itemRelese(
+                    imageUrl: 'assets/helm_3.png',
+                    price: 'US \$989',
+                    desc: 'GM HX-88',
+                  ),
+                  itemRelese(
+                    imageUrl: 'assets/helm_4.png',
+                    price: 'US \$189',
+                    desc: 'Gs HX-899',
+                  ),
+                ],
               ),
             ],
           ),
