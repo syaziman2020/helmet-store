@@ -93,44 +93,141 @@ class HomeScreen extends StatelessWidget {
       );
     }
 
+    Widget listCategory() {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+            child: Text(
+              'Categories',
+              style: darkText.copyWith(fontSize: 16),
+            ),
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                const SizedBox(
+                  width: 16,
+                ),
+                categoryItem(
+                  'assets/people3.png',
+                  'Full Face Helmet',
+                ),
+                categoryItem(
+                  'assets/people2.png',
+                  'Dual Sport/Dirt',
+                ),
+                categoryItem(
+                  'assets/people1.png',
+                  'Open Face',
+                ),
+              ],
+            ),
+          )
+        ],
+      );
+    }
+
+    Widget ListCategory() {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+            child: Text(
+              'Categories',
+              style: darkText.copyWith(fontSize: 16),
+            ),
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                const SizedBox(
+                  width: 16,
+                ),
+                categoryItem(
+                  'assets/people3.png',
+                  'Full Face Helmet',
+                ),
+                categoryItem(
+                  'assets/people2.png',
+                  'Dual Sport/Dirt',
+                ),
+                categoryItem(
+                  'assets/people1.png',
+                  'Open Face',
+                ),
+              ],
+            ),
+          )
+        ],
+      );
+    }
+
     return ListView(
       padding: EdgeInsets.zero,
       children: [
         header(),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-              child: Text(
-                'Categories',
-                style: darkText.copyWith(fontSize: 16),
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
+        listCategory(),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 30, 16, 0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                    width: 16,
+                  Text(
+                    'New Realeases',
+                    style: darkText.copyWith(fontSize: 16),
                   ),
-                  categoryItem(
-                    'assets/people3.png',
-                    'Full Face Helmet',
+                  Row(
+                    children: [
+                      Text(
+                        'View All',
+                        style: darkText.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 11,
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 10,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: 175,
+                    height: 268,
+                    color: Colors.black,
                   ),
-                  categoryItem(
-                    'assets/people2.png',
-                    'Dual Sport/Dirt',
-                  ),
-                  categoryItem(
-                    'assets/people1.png',
-                    'Open Face',
+                  Container(
+                    width: 175,
+                    height: 268,
+                    color: Colors.black,
                   ),
                 ],
               ),
-            )
-          ],
-        )
+              SizedBox(
+                height: 11,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [],
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
